@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Space Grotesk', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #050507;
+    color: #F3F4F6;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar for horizontal expressions and history */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(11, 11, 16, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.6);
+}
+
+/* Glassmorphism and Luxury Glows */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(17, 17, 22, 0.75) 0%, rgba(11, 11, 16, 0.88) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.7),
+    0 0 40px -10px rgba(124, 58, 237, 0.15),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-display {
+  background: linear-gradient(180deg, rgba(8, 8, 12, 0.92) 0%, rgba(13, 13, 19, 0.96) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.6),
+    inset 0 0 20px rgba(109, 40, 217, 0.05);
+}
+
+/* Shimmer Light Sweep on Equals Button */
+@keyframes lightSweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  animation: lightSweep 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Subtle Mathematical Grid in Background */
+.math-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* Floating animation helper */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+.floating-symbol {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+/* Number transition helper */
+.font-mono-numbers {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
